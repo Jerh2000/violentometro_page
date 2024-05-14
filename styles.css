@@ -1,0 +1,159 @@
+/* Estilos personalizados para la landing page */
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f3e5ff; /* Fondo morado claro */
+  color: #333; /* Texto negro */
+}
+
+.container2 {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 0 0px;
+}
+
+.top-logo{
+  font-family: 'Venetian 301 Roman';
+  font-size: 36px; /* Puedes ajustar el tamaño según sea necesario */
+    text-transform: uppercase; /* Opcional: transforma el texto a mayúsculas */
+    text-align: center; /* Alinea el texto al centro */
+    margin: 0; /* Elimina los márgenes por defecto */
+    padding: 0; /* Elimina el relleno por defecto */
+    display: inline-block;
+    transform: rotate(-90deg); /* Gira el texto -90 grados */
+    transform-origin: center; /* Establece el punto de origen de la transformación en el centro */
+    shape-outside: circle(50%); /* Establece la forma del área que rodea el texto como un círculo */
+    clip-path: circle(50%); /* Recorta el área que rodea el texto como un círculo */
+}
+
+.header-section {
+  position: relative;
+  background-color: #6f42c1; /* Lila */
+  color: #fff; /* Texto blanco */
+  text-align: center;
+  /* background-image: url('img/5188711.jpg'); URL de la imagen de fondo */
+  background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+  background-position: center; /* Centra la imagen */
+  height: 320px;
+}
+
+
+.intro-section {
+  position: relative;
+  background-color: #ffffff; /* Lila */
+  color: #6f42c1; /* Texto blanco */
+  text-align: center;
+  /* height: 300px; */
+  background-image: url('img/17897926.jpg'); 
+  background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+  background-position: center; /* Centra la imagen */
+}
+
+.contenido {
+  position: relative;
+  z-index: 1; /* Coloca el contenido sobre la imagen de fondo */
+  color: white; /* Color del texto */
+  text-align: center; /* Centra el texto horizontalmente */
+  padding: 0px;
+}
+
+.description-section {
+  background-image: url('img/artistic-blurry-colorful-wallpaper-background.jpg'); /* URL de la imagen de fondo */
+  background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+  background-position: center; /* Centra la imagen */
+}
+
+.types-section {
+  background-image: url('img/artistic-blurry-colorful-wallpaper-background.jpg'); /* URL de la imagen de fondo */
+  background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+  background-position: center; /* Centra la imagen */
+}
+
+.container-violentometro {
+  background-image: url('img/artistic-blurry-colorful-wallpaper-background.jpg'); /* URL de la imagen de fondo */
+  background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+  background-position: center; /* Centra la imagen */
+  height: 100vh;
+}
+
+.violentometro-section{
+  background-image: url('img/artistic-blurry-colorful-wallpaper-background.jpg'); /* URL de la imagen de fondo */
+  background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+  background-position: center; /* Centra la imagen */
+}
+
+.types-section,
+.impact-section,
+.prevention-section {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.intro-section h2,
+.description-section h2,
+.types-section h2,
+.impact-section h2,
+.prevention-section h2 {
+  color: #C8A2C8; /* Lila */
+  margin-bottom: 30px;
+}
+
+.intro-section p,
+.description-section p,
+.types-section p,
+.impact-section p,
+.prevention-section p {
+  font-size: 1.1em;
+}
+
+.staircase {
+  width: 100%;
+  height: calc(100vh - 100px); /* Altura de la ventana - altura del encabezado */
+  background: linear-gradient(to bottom, transparent 1px, #007bff 1px); /* Gradiente lineal para simular escalones */
+  position: fixed;
+  top: 100px; /* Altura del encabezado */
+  left: 0;
+  z-index: 999;
+}
+
+#muñequito {
+  position: absolute;
+  width: 50px;
+  transition: top 0.7s ease, left 0.7s ease; /* Añadir transición */
+}
+
+.bg-purple {
+  background-color: #6f42c1 !important;
+}
+
+/* #header-section:hover{
+  transform: scale(1,1);
+  transition: 4s;
+} */
+
+.wave-header{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-image: url('img/wave.png'); /* Ruta de tu imagen de fondo */
+  width: 100%;
+  height: 100px;
+  background-size: 1000px 100px;
+  animation: wave 6s linear infinite;
+}
+
+@keyframes wave {
+  0%{
+    background-position-x: 0;
+  }
+  100%{
+    background-position-x: 1000px;
+  }
+}
+
+#map {
+  height: 600px; /* Altura del mapa */
+  width: 100%; /* Ancho del mapa */
+}
+/***BOTONES*/

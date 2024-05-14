@@ -1,0 +1,221 @@
+<!-- <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Violentómetro</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .thermometer {
+            width: 30px;
+            height: 300px;
+            border: 3px solid #000;
+            border-radius: 15px;
+            margin: 0 auto;
+            background: linear-gradient(to bottom, yellow 0%, yellow 33%, orange 33%, orange 66%, red 66%, red 100%);
+            position: relative;
+        }
+
+        .mercury {
+            width: 100%;
+            background-color: red;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            transition: height 0.5s ease-in-out;
+        }
+
+        .scale {
+            position: absolute;
+            top: 0;
+            left: -50px;
+            width: 40px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .scale-item {
+            font-size: 12px;
+            color: #777;
+            text-align: right;
+            position: relative;
+        }
+
+        .scale-item:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -5px;
+            width: 10px;
+            height: 2px;
+            background-color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Violentómetro</h1>
+        <div class="thermometer">
+            <div class="mercury" id="mercury"></div>
+            <div class="scale">
+                <div class="scale-item">90</div>
+                <div class="scale-item">80</div>
+                <div class="scale-item">70</div>
+                <div class="scale-item">60</div>
+                <div class="scale-item">50</div>
+                <div class="scale-item">40</div>
+                <div class="scale-item">30</div>
+                <div class="scale-item">20</div>
+                <div class="scale-item">10</div>
+                <div class="scale-item">1</div>
+            </div>
+        </div>
+        <input type="range" min="1" max="90" value="1" id="rangeInput" class="form-control mt-3">
+    </div>
+
+    <script>
+        document.getElementById("rangeInput").addEventListener("input", function() {
+            var value = this.value;
+            updateMercuryHeight(value);
+        });
+
+        function updateMercuryHeight(value) {
+            var mercury = document.getElementById('mercury');
+            mercury.style.height = (value / 90) * 100 + '%';
+        }
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Violentómetro</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .thermometer {
+            width: 200px;
+            height: 300px;
+            border: 3px solid #000;
+            border-radius: 15px;
+            margin-right: 20px;
+            position: relative;
+        }
+
+        .mercury {
+            width: 100%;
+            /* background: linear-gradient(to top, transparent 0%, transparent calc(100% - 20px), red 100%); */
+            background: linear-gradient(to bottom, yellow 0%, yellow 33%, orange 33%, orange 66%, red 66%, red 100%);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            transition: height 0.5s ease-in-out;
+        }
+
+        .scale {
+            position: absolute;
+            top: 0;
+            left: -50px;
+            width: 40px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .scale-item {
+            font-size: 12px;
+            color: #777;
+            text-align: right;
+            position: relative;
+        }
+
+        .scale-item:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -5px;
+            width: 10px;
+            height: 2px;
+            background-color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="thermometer">
+            <div class="mercury" id="mercury"></div>
+            <div class="scale">
+                <div class="scale-item">90</div>
+                <div class="scale-item">80</div>
+                <div class="scale-item">70</div>
+                <div class="scale-item">60</div>
+                <div class="scale-item">50</div>
+                <div class="scale-item">40</div>
+                <div class="scale-item">30</div>
+                <div class="scale-item">20</div>
+                <div class="scale-item">10</div>
+                <div class="scale-item">1</div>
+            </div>
+        </div>
+        <input type="range" min="1" max="90" value="1" id="rangeInput" class="form-control mt-3">
+    </div>
+
+    <script>
+
+        document.getElementById("rangeInput").addEventListener("input", function() {
+            var value = this.value;
+            updateMercuryHeight(value);
+        });
+
+        function updateMercuryHeight(value) {
+            var mercury = document.getElementById('mercury');
+            mercury.style.height = (value / 90) * 100 + '%';
+        }
+    </script>
+</body>
+</html>

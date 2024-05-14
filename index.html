@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page - Violentómetro</title>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDxV9suraEwAxX2EO9zHAlIZ262NcRuSQ"></script>
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="packages/bootstrap/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="initMap()">
+
+  <!-- <nav class="navbar bg-purple" data-bs-theme="dark">
+      <a class="navbar-brand" href="#">
+        <img src="img/cinta.png" alt="Bootstrap" width="30" height="24">
+      </a>
+  </nav> -->
+
+  <!-- Sección 1: Encabezado -->
+  <section id="header-section" class="header-section px-2">
+      <div class="contenido">
+        <div class="row d-flex justify-content-center align-items-center">
+
+          <div class="col-12">
+            <img src="img/Logonuevopng.png" class="img-fluid" height="350px" width="350px"/>
+          </div>
+        </div>
+      </div>
+      <div class="wave-header">
+
+      </div>
+  </section>
+
+  <!-- Sección 2: Introducción -->
+  <section id="intro-section" class="intro-section px-5">
+
+    <div class="row pt-5">
+      <div class="col-4 text-center">
+        <h3>¿Quienes somos?</h3>
+        <p style="text-align: justify; color: black;" class="text-dark">
+          Somos una empresa comprometida con el cambio social apuntado a la promoción y 
+          prevención de la violencia basada en género en un amplio contexto como lo es la 
+          sociedad. Nuestro objetivo es sensibilizar y detectar la violencia temprana, 
+          crear relaciones saludables, espacios seguros y libres de violencia, donde 
+          incluiremos nuestro trabajo de manera mixta junto a hombres y mujeres para 
+          lograr el desarrollo pleno sin temor y sin sufrimiento. Además, contamos con 
+          aliados como empresas y organizaciones que implementen políticas y prácticas 
+          que promuevan a su vez la igualdad de género y prevengan la violencia será nuestro 
+          punto fuerte para alcanzar la construcción de un futuro donde la equidad y el 
+          respeto sean la norma.</p>
+      </div>
+      <div class="col-4">
+        <h3>Nuestra misión</h3>
+        <p style="text-align: justify; color: black;" class="text-dark">
+          Somos una empresa creada por profesionales psicólogos, comprometidos con la prevención
+           de la violencia basada en género, dedicada a transformar las normas culturales y sociales
+            que perpetúan la violencia de género, ofreciendo programas educativos, apoyo emocional y 
+            herramientas para fomentar relaciones sanas y equitativas en todos los ámbitos de la sociedad
+        </p>
+      </div>
+      <div class="col-4">
+        <h3>Nuestra Visión</h3>
+        <p style="text-align: justify; color: black;" class="text-dark">
+          En el 2030 nos visualizamos como una organización pionera en la implementación de programas 
+          innovadores para modificar las dinámicas de poder, siendo un referente en la generación de 
+          cambios culturales y sociales que garanticen la seguridad y el respeto para todos, 
+          independientemente de su género. Siendo reconocidos a nivel regional por nuestro impacto 
+          positivo y compromiso al promover relaciones saludables, además de esto, contribuir a la 
+          construcción de la ciudad de Cartagena donde todas las personas vivan libres de violencia y discriminación.
+        </p>
+      </div>
+    </div>
+
+
+    <!-- <div class="c">
+      <div class="row">
+        <div class="col-6 text-end">
+          <div class="row">
+            <div class="col-12 my-2">
+              <a href="" class="display-6" style="color: #6f42c1;">¿Que es el violentrometro?</a> 
+            </div>
+            <div class="col-12 my-2">
+              <a href="" class="display-6" style="color: #6f42c1;">¿Para que sirve?</a>
+            </div>
+            <div class="col-12 my-2">
+              <a href="" class="btn btn-outline-primary" >Ingresa al violentometro</a>
+            </div>          
+          </div>
+        </div>
+
+        <div class="col-6">
+            <img src="img/parablog-13-1.png" class="img-fluid" width="300" height="300" alt="La violencia"/>
+        </div>
+      </div>
+    </div> -->
+  </section>
+
+  <!-- Sección 3: Descripción -->
+  <section id="violencia-section" class="violencia-section p-5">
+    <div class="row">
+      <div class="col-12 col-md-5 text-center">
+        <img src="img/cinta.png" class="img-fluid" height="350px" width="350px"/>
+      </div>
+
+      <div class="col-12 col-md-7">
+        <div class="row">
+          <div class="col-12 py-3">
+            <a href="" class="display-6" style="color: #6f42c1;">➜¿Qué es la violencia?</a>
+          </div>
+          <div class="col-12 py-3">
+            <a href="" class="display-6" style="color: #6f42c1;">➜¿Que es VBG?</a>
+          </div>
+          <div class="col-12 py-3">
+            <a href="" class="display-6" style="color: #6f42c1;">➜Manifestaciones de la violencia</a>
+          </div>
+          <div class="col-12 py-3">
+            <a href="" class="display-6" style="color: #6f42c1;">➜Ciclo de la violencia</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Sección 3: Descripción -->
+<section id="violentometro-section" class="violentometro-section p-5">
+  <div class="row">
+    <div class="col-12 col-md-7">
+      <div class="row">
+        <div class="col-12 py-3">
+          <a href="" class="display-6" style="color: #f0f0f0;">➜¿Qué es el violentometro?</a>
+        </div>
+        <div class="col-12 py-3">
+          <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"  class="btn btn-light w-100">➜Ingresar al violentometro</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-5 text-center">
+      <!-- <img src="" class="img-fluid" height="350px" width="350px"/> -->
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- Sección 3: Descripción -->
+  <section id="description-section" class="description-section p-0 m-0">
+    <div class="px-2 py-2 text-start display-6 fw-bolder text-white">Red de Apoyo</div>
+    <div id="map"></div>
+  </section>
+
+  <!-- Sección 4: Tipos de violencia -->
+  <section id="types-section" class="types-section">
+    <div class="c">
+      <h2>Tipos de Violencia</h2>
+      <p>Explicación de los diferentes tipos de violencia que puede medir el violentómetro.</p>
+    </div>
+  </section>
+
+
+  <!-- Sección 7: Elemento con forma de escalera y muñequito -->
+  <div id="staircase">
+    <img id="muñequito" src="img/hombre.png" alt="Muñequito" style="position: absolute; width: 180px; bottom: 0;">
+  </div>
+
+
+ <!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Formulario Violentometro</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="form-violentometro">
+          <div class="row">
+            <div class="col-md-12 py-2">
+              <label for="nombre" class="form-label">Nombre Completo</label>
+              <input type="text" class="form-control" id="nombre" placeholder="Escriba su nombre completo aquí" required>
+            </div>
+            <div class="col-md-6 py-2">
+              <label for="edad" class="form-label">Edad</label>
+              <input type="number" class="form-control" id="edad" placeholder="Escriba su edad  aquí" required>
+            </div>
+            <div class="col-md-6 py-2">
+              <label for="telefono" class="form-label">Télefono/Celular</label>
+              <input type="text" class="form-control" id="telefono" placeholder="Escriba su Télefono/Celular aquí" required>
+            </div>
+            <div class="col-md-12 py-2">
+              <label for="direccion" class="form-label">Dirección</label>
+              <input type="text" class="form-control" id="direccion" placeholder="Escriba su dirección aquí" required>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-success" onclick="goToViolentometro()">Continuar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <script src="packages/JQuery/JQuery.min.js"></script>
+  <script src="packages/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
