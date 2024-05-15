@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="packages/fontawesome/css/all.min.css">
     <style>
         .thermometer {
-            width: 200px;
-            height: 550px;
+            width: 180px;
+            height: 450px;
             border: 3px solid #7c7c7c;
-            border-radius: 85px;
+            border-radius: 65px;
             margin-right: 20px;
             position: relative;
         }
@@ -22,14 +22,14 @@
             top: 0;
             left: -50px;
             width: 40px;
-            height: 550px;
+            height: 450px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
         .scale-item {
-            font-size: 12px;
+            font-size: 9px;
             color: #1a1a1a;
             text-align: right;
             position: relative;
@@ -41,14 +41,69 @@
             bottom: 0;
             left: 1px;
             width: 10px;
-            height: 2px;
+            height: 1px;
             background-color: #000000;
         }
+
+        .flecha_red {
+            width: 90px;
+            height: 90px;
+            border-top: 80px solid transparent;
+            border-bottom: 80px solid transparent;
+            border-right: 80px solid rgb(255, 0, 0); /* Cambia el color aquí si lo deseas */
+        }
+
+        .body_flecha_red {
+            width: 260px;
+            height: 160px;
+            background-color: rgb(255, 0, 0);
+        }
+
+        .flecha_orange {
+            width: 90px;
+            height: 90px;
+            border-top: 70px solid transparent;
+            border-bottom: 70px solid transparent;
+            border-right: 70px solid rgb(255, 145, 0); /* Cambia el color aquí si lo deseas */
+        }
+
+        .body_flecha_orange {
+            width: 270px;
+            height: 140px;
+            background-color: rgb(255, 145, 0);
+        }
+
+        .flecha_yellow {
+            width: 90px;
+            height: 90px;
+            border-top: 70px solid transparent;
+            border-bottom: 70px solid transparent;
+            border-right: 70px solid rgb(255, 238, 0); /* Cambia el color aquí si lo deseas */
+        }
+
+        .body_flecha_yellow {
+            width: 270px;
+            height: 140px;
+            background-color: rgb(255, 238, 0);
+        }
+
+        .mercury {
+            width: 100%;
+            /* background: linear-gradient(to top, transparent 0%, transparent calc(100% - 20px), red 100%); */
+            background: linear-gradient(to bottom, yellow 0%, yellow 33%, orange 33%, orange 66%, red 66%, red 100%);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            border-bottom-left-radius: 65px;
+            border-bottom-right-radius: 65px;
+            transition: height 1s ease-in-out;
+        }
+
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="row">
+        <div class="row d-flex justify-content-center">
             <div class="col-7 py-3 ">
                 <div class="card border-0 shadow p-2">
                     <h5 class="text-center">Responda el siguiente cuestionario para medir su escala  en el violentometro</h1>
@@ -297,47 +352,99 @@
                                 </div>
                             </div>
 
+                            <div class="col-12">
+                                <button type="button"  class="btn btn-success w-100" onclick="OpenViolentometro()">Aceptar</button>
+                            </div>
                         </div>
                     </div>
                         
                 </div>
-            </div>
-            <div class="col-5 p-3 ">
-                <div class="card border-0 shadow p-2 ">
-                    <div class="thermometer mx-5">
-                        <div class="mercury" id="mercury"></div>
-                        <div class="scale">
-                            <div class="scale-item">125</div>
-                            <div class="scale-item">120</div>
-                            <div class="scale-item">115</div>
-                            <div class="scale-item">110</div>
-                            <div class="scale-item">105</div>
-                            <div class="scale-item">100</div>
-                            <div class="scale-item">95</div>
-                            <div class="scale-item">90</div>
-                            <div class="scale-item">85</div>
-                            <div class="scale-item">80</div>
-                            <div class="scale-item">75</div>
-                            <div class="scale-item">70</div>
-                            <div class="scale-item">65</div>
-                            <div class="scale-item">60</div>
-                            <div class="scale-item">55</div>
-                            <div class="scale-item">50</div>
-                            <div class="scale-item">45</div>
-                            <div class="scale-item">40</div>
-                            <div class="scale-item">35</div>
-                            <div class="scale-item">30</div>
-                            <div class="scale-item">25</div>
-                            <div class="scale-item">20</div>
-                            <div class="scale-item">15</div>
-                            <div class="scale-item">10</div>
-                            <div class="scale-item">5</div>
-                            <div class="scale-item">1</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </div>          
         </div>
     </div>
+
+
+    <div class="modal fade" id="modal-violentometro" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">Resultado Violentometro</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="row d-flex justify-content-center">
+                <div class="col-4 p-3 ">
+                    <div class="card border-0 p-2 ">
+                        <div class="thermometer mx-5">
+                            <div class="mercury" id="mercury"></div>
+                            <div class="scale">
+                                <div class="scale-item">125</div>
+                                <div class="scale-item">120</div>
+                                <div class="scale-item">115</div>
+                                <div class="scale-item">110</div>
+                                <div class="scale-item">105</div>
+                                <div class="scale-item">100</div>
+                                <div class="scale-item">95</div>
+                                <div class="scale-item">90</div>
+                                <div class="scale-item">85</div>
+                                <div class="scale-item">80</div>
+                                <div class="scale-item">75</div>
+                                <div class="scale-item">70</div>
+                                <div class="scale-item">65</div>
+                                <div class="scale-item">60</div>
+                                <div class="scale-item">55</div>
+                                <div class="scale-item">50</div>
+                                <div class="scale-item">45</div>
+                                <div class="scale-item">40</div>
+                                <div class="scale-item">35</div>
+                                <div class="scale-item">30</div>
+                                <div class="scale-item">25</div>
+                                <div class="scale-item">20</div>
+                                <div class="scale-item">15</div>
+                                <div class="scale-item">10</div>
+                                <div class="scale-item">5</div>
+                                <div class="scale-item">1</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                </div>
+
+                <div class="col-6 p-3">
+                   <div class="card border-0 p-2">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-6 flecha_red"></div>
+                                    <div class="col-6 body_flecha_red">RED</div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                               <di class="row">
+                                <div class="col-6 flecha_orange"></div>
+                                <div class="col-6 body_flecha_orange"></div>
+                               </di>
+                            </div>
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-6 flecha_yellow"></div>
+                                    <div class="col-6 body_flecha_yellow"></div>
+                                </div>
+                            </div>
+                        </div>
+                   </div>
+                </div>
+              </div>
+            </div>
+        
+          </div>
+        </div>
+      </div>
+    
+      <script src="packages/JQuery/JQuery.min.js"></script>
+      <script src="packages/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+      <!-- <script src="script.js"></script> -->
+      <script src="js/violentometro_male.js"></script>
 </body>
 </html>
