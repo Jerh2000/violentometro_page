@@ -6,14 +6,38 @@ $(document).ready(function ()
 
 });
 
-function OpenViolentometro() {
+function OpenViolentometro() 
+{
+    let allChecked = true;
+    let total = 0;
+    // Obtener todos los nombres de los grupos de radio buttons
+    $('input[type="radio"]').each(function() {
+        const name = $(this).attr('name');
+        const checkedRadio = $('input[name="' + name + '"]:checked');
+        console.log(checkedRadio);
+        if (checkedRadio.length === 0) {
+            allChecked = false;
+            return false; // Salir del bucle each si se encuentra un grupo sin selección
+        }
+    });
+
+    if (!allChecked) 
+    {
+        alert('Por favor, responde todas las preguntas.');
+        return;
+    }
+
+    $('input[type="radio"]:checked').each(function() {
+        total += parseFloat($(this).val());
+    });
+
     modalViolentometro.show(); // Mostramos el modal
 
     // Creamos una función interna para ejecutar el bucle con un retraso
     function loopWithDelay(index) {
         setTimeout(function() {
             updateMercuryHeight(index);
-            if (index < 70) { // Si no hemos llegado al último índice
+            if (index < total) { // Si no hemos llegado al último índice
                 loopWithDelay(index + 1); // Llamamos a la función de nuevo con el siguiente índice
             }
         }, 100); // Esperamos 100 milisegundos (0.1 segundo) antes de ejecutar la siguiente iteración
