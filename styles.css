@@ -83,6 +83,12 @@ body {
   background-position: center; /* Centra la imagen */
 }
 
+.violencia-section{
+  background-image: url('img/bgmujer.jpg'); /* URL de la imagen de fondo */
+  background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+  background-position: center; /* Centra la imagen */
+}
+
 .types-section,
 .impact-section,
 .prevention-section {
