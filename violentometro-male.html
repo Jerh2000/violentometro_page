@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Violentometro Masculino</title>
+    <link href="packages/bootstrap/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="packages/fontawesome/css/all.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+
+            overflow: hidden;
+            background: linear-gradient(to bottom, #ff6ecf, #9f46c2);
+            position: relative;
+            animation: changeBackground 10s linear infinite alternate;
+            background-image: url(img/artistic-blurry-colorful-wallpaper-background.jpg);
+        }
+
+        .modal-red{
+            background-color: red;
+        }
+
+        .modal-orange{
+            background-color: orange;
+        }
+
+        .modal-yellow{
+            background-color: yellow;
+        }
+
+        .carousel {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 20px;
+            border: 5px solid #ff28c9;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            width: 1000px;
+            height: 250px;
+            max-width: 1000px;
+            background-image: url('https://www.toptal.com/designers/subtlepatterns/patterns/memphis-colorful.png');
+            background-image: url('img/bg/3528115.jpg');
+            background-size: cover;
+            position: relative;
+        }
+
+        .question-container {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+        }
+
+        .question {
+            min-width: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .background-transition {
+            transition: background-image 0.5s ease-in-out;
+        }
+
+
+        @keyframes changeBackground {
+            0% {
+                background: linear-gradient(to bottom, #f7f0eb, #d25fff);
+            }
+            50% {
+                background: linear-gradient(to bottom, #9d68ff, #ff36f5);
+            }
+            100% {
+                background: linear-gradient(to bottom, #f7f0eb, #ff3cb4);
+            }
+        }
+
+        .shape {
+            position: absolute;
+            animation: animateShape 8s linear infinite;
+        }
+
+        @keyframes animateShape {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-200vh) rotate(360deg);
+            }
+        }
+
+        .heart {
+            width: 20px;
+            height: 20px;
+            background-color: #ff0080;
+            position: absolute;
+            top: 100%;
+            left: calc(100% * var(--x));
+            clip-path: polygon(
+                50% 15%,
+                85% 30%,
+                100% 60%,
+                85% 90%,
+                50% 100%,
+                15% 90%,
+                0% 60%,
+                15% 30%
+            );
+        }
+
+        .star {
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            position: absolute;
+            top: 100%;
+            left: calc(100% * var(--x));
+            clip-path: polygon(
+                50% 0%,
+                61% 35%,
+                98% 35%,
+                68% 57%,
+                79% 91%,
+                50% 70%,
+                21% 91%,
+                32% 57%,
+                2% 35%,
+                39% 35%
+            );
+        }
+
+        .ribbon {
+            width: 20px;
+            height: 20px;
+            background-color: #5b00af;
+            position: absolute;
+            top: 100%;
+            left: calc(100% * var(--x));
+            clip-path: polygon(
+                50% 0%,
+                100% 35%,
+                79% 68%,
+                86% 100%,
+                50% 79%,
+                14% 100%,
+                21% 68%,
+                0% 35%
+            );
+        }
+
+
+        /* VIOLENTOMETRO */
+        .thermometer {
+            width: 180px;
+            height: 450px;
+            border: 6px solid #ffffff;
+            background-color: #fff;
+            border-radius: 75px;
+            margin-right: 20px;
+            position: relative;
+        }
+
+        .scale {
+            position: absolute;
+            top: 0;
+            left: -50px;
+            width: 40px;
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .scale-item {
+            font-size: 9px;
+            font-weight: bold;
+            color: #000000;
+            text-align: right;
+            position: relative;
+        }
+
+        .scale-item:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 1px;
+            width: 10px;
+            height: 2px;
+            background-color: #000000;
+        }
+
+        .flecha_red {
+            width: 90px;
+            height: 90px;
+            border-top: 80px solid transparent;
+            border-bottom: 80px solid transparent;
+            border-right: 80px solid rgb(226, 0, 0); /* Cambia el color aquí si lo deseas */
+            transition: background-color 0.8s ease;
+        }
+
+        .body_flecha_red {
+            width: 260px;
+            height: 160px;
+            background-color: rgb(226, 0, 0);
+            transition: background-color 0.8s ease;
+        }
+
+        .flecha_orange {
+            width: 90px;
+            height: 100px;
+            border-top: 90px solid transparent;
+            border-bottom: 90px solid transparent;
+            border-right: 90px solid rgb(255, 145, 0); /* Cambia el color aquí si lo deseas */
+            transition: background-color 0.8s ease;
+        }
+
+        .body_flecha_orange {
+            width: 240px;
+            height: 180px;
+            background-color: rgb(255, 145, 0);
+            transition: background-color 0.8s ease;
+        }
+
+        .flecha_yellow {
+            width: 90px;
+            height: 100px;
+            border-top: 100px solid transparent;
+            border-bottom: 100px solid transparent;
+            border-right: 100px solid rgb(255, 238, 0); /* Cambia el color aquí si lo deseas */
+            transition: background-color 0.8s ease;
+        }
+
+        .body_flecha_yellow {
+            width: 240px;
+            height: 200px;
+            background-color: rgb(255, 238, 0);
+            transition: background-color 0.8s ease;
+        }
+
+        .mercury {
+            width: 100%;
+            /* background: linear-gradient(to top, transparent 0%, transparent calc(100% - 20px), red 100%); */
+            background: linear-gradient(to bottom, rgb(117, 117, 117) 0%, rgb(117, 117, 117) 33%, rgb(117, 117, 117) 33%, rgb(117, 117, 117) 66%, rgb(117, 117, 117) 66%, rgb(117, 117, 117) 100%);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            border-bottom-left-radius: 75px;
+            border-bottom-right-radius: 75px;
+            border-top-left-radius: 75px;
+            border-top-right-radius: 75px;
+            transition: height 0.1s ease-in-out;
+        }
+        .modal-content{
+            transition: background-color 1s ease;
+        }
+
+        #img-result{
+            transition: 0.8s ease;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="shape heart" style="--x: 0;"></div>
+    <div class="shape star" style="--x: 0.2;"></div>
+    <div class="shape ribbon" style="--x: 0.4;"></div>
+
+    
+    
+    <div class="shape heart" style="--x: 0.6;"></div>
+    <div class="shape ribbon" style="--x: 1;"></div>
+    <div class="shape star" style="--x: 0.8;"></div>
+
+    <div class="shape heart" style="--x: 1.2;"></div>
+    <div class="shape ribbon" style="--x: 1.4;"></div>
+    <div class="shape star" style="--x: 1.6;"></div>
+
+    <div class="shape ribbon" style="--x: 1.8;"></div>
+
+   <div class="row">
+        <div class="col-12 text-start m-2">
+            <a href="index.html" class="btn btn-light"><i class="fa-solid fa-arrow-left"></i> Volver</a>
+        </div>
+        <div class="col-12 text-center">
+            <img class="img-fluid" src="img/Logonuevopng2.png" alt="Logo" width="180" height="180">
+        </div>
+        <h5 class="text-center fs-2 mb-1">Responda el siguiente cuestionario para medir su escala  en el violentometro</h1>
+        <div class="col-12 d-flex justify-content-center">
+            <div class="carousel background-transition" id="carousel">
+                <div class="question-container" id="question-container">
+                    <!-- Preguntas se insertarán aquí dinámicamente -->
+                </div>       
+            </div>
+        </div>
+        <div class="col-12 d-flex justify-content-center mt-3">
+            <button class="btn btn-secondary mx-5" id="prev" onclick="prevQuestion()"><i class="fa-solid fa-arrow-left"></i> Anterior</button>
+            <button class="btn btn-primary mx-5" id="next" onclick="nextQuestion()"><i class="fa-solid fa-arrow-right"></i> Siguiente</button>
+            <button class="btn btn-success mx-5" id="finish" onclick="finishQuiz()">Finalizar</button>                          
+        </div>
+   </div>
+
+   <div class="modal fade" id="modal-violentometro" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Resultado Violentometro</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row d-flex justify-content-center">
+            <h4 class="fs-2" id="label-result">Su puntuación es de </h4>
+            <div class="col-4 p-3 ">              
+                <div class="p-2 ">
+                    <div class="thermometer mx-5">
+                        <div class="mercury" id="mercury"></div>
+                        <div class="scale">
+                            <div class="scale-item">125</div>
+                            <div class="scale-item">120</div>
+                            <div class="scale-item">115</div>
+                            <div class="scale-item">110</div>
+                            <div class="scale-item">105</div>
+                            <div class="scale-item">100</div>
+                            <div class="scale-item">95</div>
+                            <div class="scale-item">90</div>
+                            <div class="scale-item">85</div>
+                            <div class="scale-item">80</div>
+                            <div class="scale-item">75</div>
+                            <div class="scale-item">70</div>
+                            <div class="scale-item">65</div>
+                            <div class="scale-item">60</div>
+                            <div class="scale-item">55</div>
+                            <div class="scale-item">50</div>
+                            <div class="scale-item">45</div>
+                            <div class="scale-item">40</div>
+                            <div class="scale-item">35</div>
+                            <div class="scale-item">30</div>
+                            <div class="scale-item">25</div>
+                            <div class="scale-item">20</div>
+                            <div class="scale-item">15</div>
+                            <div class="scale-item">10</div>
+                            <div class="scale-item">5</div>
+                            <div class="scale-item">1</div>
+                        </div>
+                    </div>
+                </div>              
+            </div>
+
+            <div class="col-6 p-3">
+               <div class="p-2">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-6 flecha_red" id="h-red-alert"></div>
+                                <div class="col-6 body_flecha_red" id="b-red-alert">
+                                   <p class="text-white fs-5 mt-3"> ¡Necesitas ayuda inmediata, la violencia de este nivel, trae consecuencias graves!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                           <div class="row">
+                                <div class="col-6 flecha_orange" id="h-orange-alert">
+                                </div>
+                                <div class="col-6 body_flecha_orange" id="b-orange-alert">
+                                   <p class="text-white fs-5 mt-3">¡Reacciona!, estas ejerciendo violencia, es momento de que pares con ella, busca ayuda profesional. </p> 
+                                </div>
+                           </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-6 flecha_yellow" id="h-yellow-alert"></div>
+                                <div class="col-6 body_flecha_yellow" id="b-yellow-alert"> 
+                                   <p class="text-dark fs-5 mt-3">¡Ten cuidado!, la violencia puede aumentar, busca ayuda profesional.  No permitas que esta situación empeore.</p> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="row text-center">
+                                <img id="img-result" class="img-fluid" src="img/advertencia.png" alt="" width="120" height="120" >
+                            </div>
+                        </div>
+                    </div>
+               </div>
+            </div>
+          </div>
+        </div>   
+      </div>
+    </div>
+  </div>
+
+  <script src="packages/JQuery/JQuery.min.js"></script>
+<script src="packages/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+<!-- <script src="script.js"></script> -->
+<script src="js/violentometro_male.js"></script>
+</body>
+</html>
