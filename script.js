@@ -1,40 +1,40 @@
 
 
-document.addEventListener('DOMContentLoaded', function() {
-  const sections = document.querySelectorAll('section'); // Obtener todas las secciones
-  const muñequito = document.getElementById('muñequito');
+// document.addEventListener('DOMContentLoaded', function() {
+//   const sections = document.querySelectorAll('section'); // Obtener todas las secciones
+//   const muñequito = document.getElementById('muñequito');
 
-  const firstSection = sections[0]; // Obtener la primera sección
-  const firstSectionRect = firstSection.getBoundingClientRect(); // Obtener el rectángulo de la primera sección
+//   const firstSection = sections[0]; // Obtener la primera sección
+//   const firstSectionRect = firstSection.getBoundingClientRect(); // Obtener el rectángulo de la primera sección
 
-  // Obtener la posición inicial del muñequito
-  const initialTop = firstSectionRect.top + window.scrollY - 0; // -100 para ajustar la posición vertical
-  const initialLeft = firstSectionRect.left + 50; // Ajustar la posición horizontal
+//   // Obtener la posición inicial del muñequito
+//   const initialTop = firstSectionRect.top + window.scrollY - 0; // -100 para ajustar la posición vertical
+//   const initialLeft = firstSectionRect.left + 50; // Ajustar la posición horizontal
 
-  muñequito.style.top = `${initialTop}px`; // Establecer la posición inicial del muñequito
-  muñequito.style.left = `${initialLeft}px`;
+//   muñequito.style.top = `${initialTop}px`; // Establecer la posición inicial del muñequito
+//   muñequito.style.left = `${initialLeft}px`;
 
-  sections.forEach(function(section, index) {
-    section.addEventListener('click', function() {
-      // Obtener la posición de la sección clickeada
-      const rect = section.getBoundingClientRect();
-      const scrollToTop = rect.top + window.scrollY - 0; // -100 para ajustar la posición vertical
-      const scrollToLeft = (index * 200) - (firstSectionRect.left - 50); // Ajustar posición horizontal relativa a la primera sección
+//   sections.forEach(function(section, index) {
+//     section.addEventListener('click', function() {
+//       // Obtener la posición de la sección clickeada
+//       const rect = section.getBoundingClientRect();
+//       const scrollToTop = rect.top + window.scrollY - 0; // -100 para ajustar la posición vertical
+//       const scrollToLeft = (index * 200) - (firstSectionRect.left - 50); // Ajustar posición horizontal relativa a la primera sección
 
-      // Desplazar la página a la sección clickeada
-      window.scrollTo({
-        top: scrollToTop,
-        behavior: 'smooth' // Desplazamiento suave
-      });
+//       // Desplazar la página a la sección clickeada
+//       window.scrollTo({
+//         top: scrollToTop,
+//         behavior: 'smooth' // Desplazamiento suave
+//       });
 
-      // Mover el muñequito a la sección clickeada
-      muñequito.style.top = `${scrollToTop}px`;
-      muñequito.style.left = `${scrollToLeft}px`;
-    });
-  });
+//       // Mover el muñequito a la sección clickeada
+//       muñequito.style.top = `${scrollToTop}px`;
+//       muñequito.style.left = `${scrollToLeft}px`;
+//     });
+//   });
 
 
-});
+// });
 
 var map;
 var markers = [];
