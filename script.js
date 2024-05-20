@@ -36,35 +36,65 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
+var map;
+var markers = [];
+
+var locations = [
+  { lat: 10.40736580084985, lng: -75.49202041226125, nombre: 'Comisaria de Familia - Cartagena de Indias' },
+  { lat: 10.409715115332057, lng: -75.48435710364696, nombre: 'Casa de Justicia Chiquinquira - Cartagena de Indias' },
+  { lat: 11.028463969250513, lng: -74.80715132672596, nombre: 'CAVIF' }
+  
+];
 
 function initMap() {
-  // Coordenadas de los puntos que deseas mostrar en el mapa
-  var puntos = [
-    { lat: 10.393967, lng: -75.481516, nombre: 'Ronda Real' },
-    { lat: 34.0522, lng: -118.2437, nombre: 'Los Ángeles' },
-    { lat: 51.5074, lng: -0.1278, nombre: 'Londres' }
-    // Agrega más puntos si es necesario
-  ];
+  map = new google.maps.Map(document.getElementById('map'), {
+      center: { lat: -34.397, lng: 150.644 },
+      zoom: 8,
+      mapTypeId: 'roadmap', // Tipo de mapa inicial
+      mapTypeControl: false // Ocultar el control de tipo de mapa predeterminado
+  });
 
-  // Opciones del mapa
-  var opcionesMapa = {
-    zoom: 10, // Nivel de zoom
-    center: { lat: 10.393967, lng: -75.481516 } // Centro del mapa
-  };
-
-  // Crear un nuevo mapa dentro del contenedor
-  var mapa = new google.maps.Map(document.getElementById('map'), opcionesMapa);
-
-  // Iterar sobre los puntos y agregar marcadores
-  for (var i = 0; i < puntos.length; i++) {
-    var punto = puntos[i];
-    var marcador = new google.maps.Marker({
-      position: { lat: punto.lat, lng: punto.lng },
-      map: mapa,
-      title: punto.nombre // Nombre del punto (se muestra al pasar el cursor sobre el marcador)
-    });
+  for (var i = 0; i < locations.length; i++) {
+      var marker = new google.maps.Marker({
+          position: locations[i],
+          map: map,
+          title: locations[i].nombre,
+      });
+      markers.push(marker);
   }
 }
+
+// function initMap() {
+//   // Coordenadas de los puntos que deseas mostrar en el mapa
+  
+
+
+//   // Opciones del mapa
+//   var opcionesMapa = {
+//     zoom: 10, // Nivel de zoom
+//     center: { lat: 10.393967, lng: -75.481516 } // Centro del mapa
+//   };
+
+//   // Crear un nuevo mapa dentro del contenedor
+//   var mapa = new google.maps.Map(document.getElementById('map'), opcionesMapa);
+
+//   // Iterar sobre los puntos y agregar marcadores
+//   for (var i = 0; i < puntos.length; i++) {
+//     var punto = puntos[i];
+//     var marcador = new google.maps.Marker({
+//       position: { lat: punto.lat, lng: punto.lng },
+//       map: mapa,
+//       title: punto.nombre // Nombre del punto (se muestra al pasar el cursor sobre el marcador)
+//     });
+//   }
+// }
+
+function markMap(point)
+{
+  map.setCenter(locations[point]);
+  map.setZoom(20);
+}
+
 
 function goToViolentometro()
 {

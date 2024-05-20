@@ -5,6 +5,7 @@ body {
   padding: 0;
   background-color: #f3e5ff; /* Fondo morado claro */
   color: #333; /* Texto negro */
+  overflow-x: hidden;
 }
 
 .container2 {

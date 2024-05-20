@@ -11,37 +11,37 @@ $(document).ready(function ()
 
 
 const questions = [
-    "1) ¿La convences de no salir sola por seguridad y la prevees de lo necesario para que no lo hagas?",
-    '2) ¿Alguna vez te han dicho o haz Escuchado esta frase: "Que pague al fin es hombre"?',
-    '3) ¿Alguna vez haz dicho o haz Escuchado esta frase: "Ella no es para tener una relación seria"?',
-    '4) ¿Alguna vez te han dicho o haz Escuchado esta frase: "El hombre no es gente ni familia"?',
-    '5) ¿Alguna vez te han dicho o haz Escuchado esta frase: "Los Hombres no lloran"?',
-    '6) ¿Le haz pedido sus contraseñas bancarias o acceso a ellas cuando quieres?',
-    '7) ¿Le pides las contraseñas para acceder a su banco en línea o hacer retiros de cajeros automáticos?',
-    '8) ¿Tienes control sobre sus finanzas?',
-    '9) ¿Le haz mencionado que para tener éxito como mujer debe estar siempre arreglada, maquillada y ser bonita?',
-    '10) ¿La convences de no salir sola por seguridad y la prevees de lo necesario para que no lo hagas?',
-    '11) ¿Haz tenido comportamientos físicamente agresivos, como empujarla o provocarle daño?',
-    '12) ¿La obligas a subir o bajar de peso según tu ideal de belleza?',
-    '13) ¿Le haz hecho comentarios sexuales no deseados?',
-    '14) ¿Le haz exigido que no se arregle, maquille o cuide su apariencia personal?',
-    '15) ¿Menosprecias o te burlas de sus habilidades y capacidades?',
-    '16) ¿Le dificultas estudiar o trabajar debido a las responsabilidades domésticas, cuidado de hijos/as o personas dependientes de ella?',
-    '17) ¿Controlas o administras sus ingresos?',
-    '18) ¿Le prohibes emprender un negocio o realizar ventas?',
-    '19) ¿Te presentas sin previo aviso en su trabajo, estudios u otros lugares para controlar con quien está?',
-    '20) ¿Le provocas celos o te molesta si habla con otros hombres y le prohíbes tener amistades con ellos?',
-    '21) ¿Le ha causado lesiones que han requerido hospitalizacion o atención médica?',
-    '22) ¿Le ha causado lesiones como torceduras o fracturas?',
-    '23) ¿Le ha abofeteado o lanzado objetos para provocarle daño?',
-    '24) ¿La ha forzada a tener relaciones sexuales con otras personas?',
-    '25) ¿Ha requerido atención médica por infecciones de transmisión sexual o lesiones en sus partes íntimas debido a agresiones sexuales?',
-    '26) ¿La ha obligado a tener relaciones sexuales con otras personas?',
-    '27) ¿Le haz hecho contacto sexual no deseado en sus partes íntimas?',
-    '28) ¿La amenazas a través de miradas, gestos o señas?',
-    '29) ¿La haz acosado sexualmente a través de medios virtuales como redes sociales, teléfono o correo electrónico?',
-    '30) ¿Le haz quitado documentos, artículos personales o haz quitado sus ingresos?',
-    '31) ¿Le haz impedido tener contacto con su familia o amigos?'
+    "1) ¿Te convence de no salir sola por seguridad y te prevee de lo necesario para que no lo hagas?",
+    '2) ¿Te ha mencionado que para tener éxito como mujer debes estar siempre arreglada, maquillada y ser bonita?',
+    '3) ¿Tiene control sobre tus finanzas?',
+    '4) ¿Te pide las contraseñas para acceder a tu banco en línea o hacer retiros de cajeros automáticos?',
+    '5) ¿Te ha pedido tus contraseñas bancarias o acceso a ellas cuando quiera?',
+    '6) ¿Alguna vez te han dicho o haz Escuchado esta frase: "Si eres mujer debes ser madre"?',
+    '7) ¿Alguna vez te han dicho o haz Escuchado esta frase: "ser mamá es lo más lindo de ser mujer"?',
+    '8) ¿Alguna vez te han dicho o haz Escuchado esta frase: "Deberías ser más femenina "?',
+    '9) ¿Ha tenido comportamientos físicamente agresivos, como empujarte o provocar daño?',
+    '10) ¿Te obliga a subir o bajar de peso según su ideal de belleza?',
+    '11) ¿Le ha hecho comentarios sexuales no deseados?',
+    '12) ¿Te ha exigido que no te arregles o maquilles o cuides tu apariencia personal?',
+    '13) ¿Te menosprecia o se burla de tus habilidades y capacidades?',
+    '14) ¿Te ha dificultado estudiar o trabajar debido a las responsabilidades domésticas, cuidado de hijos/as o personas dependientes de ti?',
+    '15) ¿Controla o administra tus ingresos?',
+    '16) ¿Te ha prohibido emprender un negocio o realizar ventas?',
+    '17) ¿Se presenta sin previo aviso en tu trabajo, estudios u otros lugares para controlar con quien estás?',
+    '18) ¿Te pone celosa o se molesta si hablas con otros hombres y te prohíbe tener amistades con ellos?',
+    '19) ¿Te ha causado lesiones que han requerido hospitalizacion o atención médica?',
+    '20) ¿Te ha causado lesiones como torceduras o fracturas?',
+    '21) ¿Te ha abofeteado o lanzado objetos para hacerte daño?',
+    '22) ¿Haz sido forzada a tener relaciones sexuales con otras personas?',
+    '23) ¿Ha requerido atención médica por infecciones de transmisión sexual o lesiones en sus partes íntimas debido a agresiones sexuales?',
+    '24) ¿Te ha obligado a tener relaciones sexuales con otras personas?',
+    '25) ¿Ha tenido contacto sexual no deseado en sus partes íntimas?',
+    '26) ¿Te amenaza a través de miradas, gestos o señas?',
+    '27) ¿Se ha sentido acosada sexualmente a través de medios virtuales como redes sociales, teléfono o correo electrónico?',
+    '28) ¿Te ha quitado documentos,  artículos personales o han quitado tus ingresos?',
+    '29) ¿Te ha impedido tener contacto con tu familia o amigos?',
+    '30) ¿Alguna vez te han dicho o haz Escuchado esta frase: "Se lo busco por andar vestida así" ?',
+    '31) ¿Alguna vez te han dicho o haz Escuchado esta frase: "Si le pegan es porque se lo merece"?'
 ];
 
 const options = [
@@ -211,7 +211,7 @@ function updateMercuryHeight(value)
     modalContent.removeClass('modal-red modal-yellow modal-orange');
 
     var color;
-    if (value <= 40) 
+    if (value <= 32) 
     {
         color = "#FFEE00";
         $('#h-red-alert').hide();
@@ -222,7 +222,7 @@ function updateMercuryHeight(value)
         $('#b-yellow-alert').show();
         modalContent.addClass('modal-yellow');
         $('#img-result').attr('src', 'img/advertencia.png');
-    } else if (value <= 80) 
+    } else if (value <= 72) 
     {
         color = "#FF9100";
         $('#h-red-alert').hide();
