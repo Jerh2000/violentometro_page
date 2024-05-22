@@ -53,8 +53,6 @@ const options = [
 ];
 
 const backgrounds = [
-    'url("img/bg/3528115.jpg")',
-    'url("img/bg/5097013.jpg")',
     'url("img/bg/6047506.jpg")',
     'url("img/bg/rm222-mind-22.jpg")'
 ];
