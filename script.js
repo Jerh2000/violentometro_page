@@ -1,43 +1,12 @@
 
+const chatbotmodal = new bootstrap.Modal(document.getElementById("chatbot-help"), {});
 
-// document.addEventListener('DOMContentLoaded', function() {
-//   const sections = document.querySelectorAll('section'); // Obtener todas las secciones
-//   const muñequito = document.getElementById('muñequito');
-
-//   const firstSection = sections[0]; // Obtener la primera sección
-//   const firstSectionRect = firstSection.getBoundingClientRect(); // Obtener el rectángulo de la primera sección
-
-//   // Obtener la posición inicial del muñequito
-//   const initialTop = firstSectionRect.top + window.scrollY - 0; // -100 para ajustar la posición vertical
-//   const initialLeft = firstSectionRect.left + 50; // Ajustar la posición horizontal
-
-//   muñequito.style.top = `${initialTop}px`; // Establecer la posición inicial del muñequito
-//   muñequito.style.left = `${initialLeft}px`;
-
-//   sections.forEach(function(section, index) {
-//     section.addEventListener('click', function() {
-//       // Obtener la posición de la sección clickeada
-//       const rect = section.getBoundingClientRect();
-//       const scrollToTop = rect.top + window.scrollY - 0; // -100 para ajustar la posición vertical
-//       const scrollToLeft = (index * 200) - (firstSectionRect.left - 50); // Ajustar posición horizontal relativa a la primera sección
-
-//       // Desplazar la página a la sección clickeada
-//       window.scrollTo({
-//         top: scrollToTop,
-//         behavior: 'smooth' // Desplazamiento suave
-//       });
-
-//       // Mover el muñequito a la sección clickeada
-//       muñequito.style.top = `${scrollToTop}px`;
-//       muñequito.style.left = `${scrollToLeft}px`;
-//     });
-//   });
-
-
-// });
+const chatInput = document.getElementById('chatInput');
+const chatLog = document.getElementById('chatLog');
 
 var map;
 var markers = [];
+var counterChat = 0;
 
 var locations = [
   { lat: 10.40736580084985, lng: -75.49202041226125, nombre: 'Comisaria de Familia - Cartagena de Indias' },
@@ -64,30 +33,11 @@ function initMap() {
   }
 }
 
-// function initMap() {
-//   // Coordenadas de los puntos que deseas mostrar en el mapa
-  
-
-
-//   // Opciones del mapa
-//   var opcionesMapa = {
-//     zoom: 10, // Nivel de zoom
-//     center: { lat: 10.393967, lng: -75.481516 } // Centro del mapa
-//   };
-
-//   // Crear un nuevo mapa dentro del contenedor
-//   var mapa = new google.maps.Map(document.getElementById('map'), opcionesMapa);
-
-//   // Iterar sobre los puntos y agregar marcadores
-//   for (var i = 0; i < puntos.length; i++) {
-//     var punto = puntos[i];
-//     var marcador = new google.maps.Marker({
-//       position: { lat: punto.lat, lng: punto.lng },
-//       map: mapa,
-//       title: punto.nombre // Nombre del punto (se muestra al pasar el cursor sobre el marcador)
-//     });
-//   }
-// }
+document.getElementById('chatInput').addEventListener('keypress', function(event) {
+  if (event.key === 'Enter') {
+    Chating();
+  }
+});
 
 function markMap(point)
 {
@@ -111,4 +61,121 @@ function goToViolentometro()
   }
 
   window.location.href = "violentometro.html";
+}
+
+function OpenChat()
+{
+  counterChat++;
+  chatLog.innerHTML = "";
+
+  chatbotmodal.show();
+  const newMessage = document.createElement('div');
+  newMessage.classList.add('chat-message-bot');
+  newMessage.textContent = "-Hola, estoy aquí para ayudarte. Necesito estos datos: Nombre, edad, dirección y número.";
+  chatLog.appendChild(newMessage);
+  chatInput.value = '';
+  chatLog.scrollTop = 0;
+
+  const newMessage2 = document.createElement('div');
+  newMessage2.classList.add('chat-message-bot');
+  newMessage2.textContent = "Escribe tu nombre a continuación...";
+  chatLog.appendChild(newMessage2);
+  chatInput.value = '';
+  chatLog.scrollTop = 0;
+}
+
+function Chating()
+{
+
+  if (chatInput.value.trim() !== '') {
+    const newMessage = document.createElement('div');
+    newMessage.classList.add('chat-message');
+    newMessage.textContent = chatInput.value;
+    chatLog.appendChild(newMessage);
+    chatInput.value = '';
+    chatLog.scrollTop = chatLog.scrollHeight;
+  }
+
+  counterChat++;
+
+  if(counterChat == 2)
+  {
+    const newMessage = document.createElement('div');
+    newMessage.classList.add('chat-message-bot');
+    newMessage.textContent = "Escribe tu edad...";
+    chatLog.appendChild(newMessage);
+    chatInput.value = '';
+    chatLog.scrollTop = chatLog.scrollHeight;
+    counterChat++;
+    return;
+  }
+
+  if(counterChat == 4)
+  {
+    const newMessage = document.createElement('div');
+    newMessage.classList.add('chat-message-bot');
+    newMessage.textContent = "Escribe tu dirección...";
+    chatLog.appendChild(newMessage);
+    chatInput.value = '';
+    chatLog.scrollTop = chatLog.scrollHeight;
+    counterChat++;
+    return;
+  }
+
+  if(counterChat == 6)
+  {
+    const newMessage = document.createElement('div');
+    newMessage.classList.add('chat-message-bot');
+    newMessage.textContent = "Escribe tu número de teléfono...";
+    chatLog.appendChild(newMessage);
+    chatInput.value = '';
+    chatLog.scrollTop = chatLog.scrollHeight;
+    counterChat++;
+    return;
+  }
+
+  if(counterChat == 8)
+    {
+      const newMessage = document.createElement('div');
+      newMessage.classList.add('chat-message-bot');
+      newMessage.textContent = "¿Como te podemos ayudar? Elige una de estas categorías:";
+
+      const newMessage2 = document.createElement('button');
+      newMessage2.classList.add('btn','btn-primary','mx-2','my-1');
+      newMessage2.textContent = "Asesoramiento psicológico.";
+
+      const newMessage3 = document.createElement('button');
+      newMessage3.classList.add('btn','btn-primary','mx-2','my-1');
+      newMessage3.textContent = "Asesoramiento Legal. ";
+
+      const newMessage4 = document.createElement('button');
+      newMessage4.classList.add('btn','btn-primary','mx-2','my-1');
+      newMessage4.textContent = "Rutas de atención. ";
+
+      const newMessage5 = document.createElement('button');
+      newMessage5.classList.add('btn','btn-primary','mx-2','my-1');
+      newMessage5.textContent = "¿Estas sufriendo Violencia? ";
+
+      const newMessage6 = document.createElement('button');
+      newMessage6.classList.add('btn','btn-primary','mx-2','my-1');
+      newMessage6.textContent = "Información de nuestra empresa.";
+
+      const newMessage7 = document.createElement('button');
+      newMessage7.classList.add('btn','btn-primary','mx-2','my-1');
+      newMessage7.textContent = "Otro.";
+
+      chatLog.appendChild(newMessage);
+      chatLog.appendChild(newMessage2);
+      chatLog.appendChild(newMessage3);
+      chatLog.appendChild(newMessage4);
+      chatLog.appendChild(newMessage5);
+      chatLog.appendChild(newMessage6);
+      chatLog.appendChild(newMessage7);
+      chatInput.value = '';
+      chatLog.scrollTop = chatLog.scrollHeight;
+      counterChat++;
+      return;
+    }
+
+  chatLog.scrollTop = 0;
 }

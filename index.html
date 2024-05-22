@@ -186,12 +186,39 @@
 
   <!-- Sección 4: Tipos de violencia -->
   <section id="types-section" class="types-section">
-    <div class="c">
-      <h2>Tipos de Violencia</h2>
-      <p>Explicación de los diferentes tipos de violencia que puede medir el violentómetro.</p>
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <img src="img/bgservicios.webp" alt="" class="img-fluid" height="400" width="400">
+      </div>
+      <div class="col-12 col-md-6 mt-4">
+        <div class="row">
+          <div class="col-12 py-3">
+            <a href="acompanamiento.html" class="display-6" style="color: #ffffff;">➜Acompañamiento y Apoyo</a>
+          </div>
+          <div class="col-12 py-3">
+            <a href="educacion.html" class="display-6" style="color: #ffffff;">➜Eduación y Sensibilización</a>
+          </div>
+          <div class="col-12 py-3">
+            <a href="asesoramiento.html" class="display-6" style="color: #ffffff;">➜Asesoramiento Legal y Defensa de Derechos</a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
+  <section class="">
+    <div class="row py-4" style="background-color: black;">
+      <div class="col-8 col-md-10 px-3">
+        <h2 class="text-white">Contactanos</h2>
+        <h2 class="text-white fs-5">Número:</h2>
+        <h2 class="text-white fs-5">Instagram:</h2>
+        <h2 class="text-white fs-5">Correo:</h2>
+      </div>
+      <div class="col-4 col-md-2 px-5 d-flex justify-content align-items-center">
+        <img id="imagen-flotante" src="img/chatbot.png" alt="" height="90" width="90" onclick="OpenChat()">
+      </div>
+    </div>
+  </section>
 
   <!-- Sección 7: Elemento con forma de escalera y muñequito -->
   <!-- <div id="staircase">
@@ -234,6 +261,32 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
         <button type="button" class="btn btn-success" onclick="goToViolentometro()">Continuar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="chatbot-help" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">ChatBot</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="chat-box">
+          <div class="chat-log" id="chatLog">
+            <!-- Mensajes del chat aparecerán aquí -->
+          </div>
+        </div>
+
+          <div class="input-group">
+            <input type="text" class="form-control" id="chatInput" placeholder="Escribe un mensaje..." aria-label="Mensaje" aria-describedby="button-send">
+            <div class="input-group-append">
+              <button id="btn-send" class="btn btn-primary" type="button" id="button-send" onclick="Chating()"><i class="fa-solid fa-paper-plane"></i> Enviar</button>
+            </div>
+          </div>
+       
       </div>
     </div>
   </div>

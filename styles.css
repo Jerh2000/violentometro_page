@@ -90,29 +90,13 @@ body {
   background-position: center; /* Centra la imagen */
 }
 
-.types-section,
-.impact-section,
-.prevention-section {
-  padding: 80px 0;
-  text-align: center;
+.types-section
+{
+  background-image: url('img/artistic-blurry-colorful-wallpaper-background.jpg'); /* URL de la imagen de fondo */
+  background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+  background-position: center; /* Centra la imagen */
 }
 
-.intro-section h2,
-.description-section h2,
-.types-section h2,
-.impact-section h2,
-.prevention-section h2 {
-  color: #C8A2C8; /* Lila */
-  margin-bottom: 30px;
-}
-
-.intro-section p,
-.description-section p,
-.types-section p,
-.impact-section p,
-.prevention-section p {
-  font-size: 1.1em;
-}
 
 .staircase {
   width: 100%;
@@ -164,3 +148,46 @@ body {
   width: 100%; /* Ancho del mapa */
 }
 /***BOTONES*/
+
+#imagen-flotante {
+
+  animation: flotar 3s ease-in-out infinite;
+}
+
+@keyframes flotar {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-20px);
+  }
+}
+
+.chat-box {
+  height: 300px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.chat-log {
+  max-height: 100%;
+}
+
+.chat-message {
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  background-color: #f1f1f1;
+  margin-left: 70px;
+  border-radius: 5px;
+}
+
+.chat-message-bot {
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  margin-right: 70px;
+  background-color: #bc2aff;
+  color: white;
+  border-radius: 5px;
+}
